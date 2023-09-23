@@ -20,7 +20,7 @@ const All = () => {
         {
           lots.map((lot, index) => {
             return (
-              <div className='lot' onClick={() => navigate(`/lot/${index}`)}>
+              <div className='lot container hoverable' onClick={() => navigate(`/lot/${index}`)}>
                 <h2 className='flex justify-between items-center'>
                   {lot.title}
                   <p className='text-lg'>
@@ -32,7 +32,7 @@ const All = () => {
                   </p>
                 </h2>
                 <p>{lot.address}</p>
-                <p>{lot.spots} spots • {(lot.price === 0) ? "Free" : `$${lot.price}.00`}</p>
+                {/* <p>{lot.spots} spots • {(lot.price === 0) ? "Free" : `$${lot.price}.00`}</p> */}
                 <p>Open {lot.open}</p>
                 <img src={lot.image}></img>
                 <div className='flex gap-2 items-center mt-4'>

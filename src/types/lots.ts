@@ -1,9 +1,22 @@
-enum Tile {
+export enum TileType {
   Empty,
-  Line,
+  Blocked,
   Spot,
   LotEntrance,
   BuildingEntrance
+}
+
+export let edgesEnum = {
+  none: [false, false, false, false],
+  top: [false, true, true, true],
+  right: [true, false, true, true],
+  bottom: [true, true, false, true],
+  left: [true, true, true, false],
+}
+
+export interface Tile {
+  type: TileType,
+  edges: boolean[]
 }
 
 export interface LotType {
