@@ -1,0 +1,24 @@
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        background-color: #ccfbf1;
+
+        transition: background-color .3s ease;
+        
+        &:hover {
+            background-color: #99f6e4;
+        }
+
+        span {
+            font-size: 18px;
+        }
+    }
+}
