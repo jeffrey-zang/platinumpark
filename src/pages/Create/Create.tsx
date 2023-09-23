@@ -1,41 +1,50 @@
 import { useState } from "react"
 import { BiSolidCar, BiSolidCommentDetail } from "react-icons/bi"
 import './Create.scss'
+import { LotContext } from "../../contexts/LotContext"
+import { useContext } from "react"
+import { LotType } from "../../types/lots"
+import { useNavigate } from "react-router-dom"
 
 const Create = () => {
-  const [newLot, setNewLot] = useState({
-    name: '',
+  const { addLot } = useContext(LotContext)
+  const navigate = useNavigate()
+
+  const emptyLot: LotType = {
+    title: '',
     address: '',
-    spots: 0,
-    imageUrl: '',
-  })
+    spots: [[]],
+    price: 0,
+    image: '',
+    open: '',
+    reviews: []
+  }
+
+  const [newLot, setNewLot] = useState<LotType>(emptyLot)
+  const [step, setStep] = useState(1)
 
   const updateNewLot = (name: string, value: any) => {
-    console.log(name, value)
     setNewLot(lot => ({ ...lot, [name]: value}))
   }
 
   const handleClick = () => {
-    setNewLot({
-      name: '',
-      address: '',
-      spots: 0,
-      imageUrl: '',
-    })
+    addLot(newLot)
+    setNewLot(emptyLot)
+    navigate('/all')
   }
 
-  return (
-    <div className='p-12 all w-[80vw] bg-[#fafafa]'>
-      <h1>Create lot</h1>
-      <p>Create a lot.</p>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-full gap-x-8 gap-y-2 mt-4'>
+  if (step === 1) return (
+    <div className='px-48 pt-12 all w-[80vw] bg-[#fafafa]'>
+      <h1 className="text-center text-[2.5rem]">Create lot</h1>
+      <p className="text-center text-[1.1rem]">Discover a parking lot in the middle of nowhere? Add it to our database!</p>
+      <div className='grid grid-cols-1 w-full gap-x-8 gap-y-2 mt-4'>
 
         <div className="input-field">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Title</label>
           <input
-            name='name'
-            value={newLot.name}
-            onChange={e => updateNewLot('name', e.target.value)}
+            name='title'
+            value={newLot.title}
+            onChange={e => updateNewLot('title', e.target.value)}
             placeholder="Parking Lot A"
           />
         </div>
@@ -49,18 +58,48 @@ const Create = () => {
             placeholder="200 University Ave W"
           />
         </div>
+
+        <div className="input-field">
+          <label htmlFor="price">Price</label>
+          <input
+            name='price'
+            value={newLot.price || ''}
+            type="number"
+            min={1}
+            max={100}
+            onChange={e => updateNewLot('price', e.target.value)}
+            placeholder="3.00"
+          />
+        </div>
+
+        <div className="input-field">
+          <label htmlFor="price">Days Open</label>
+          <input
+            name='open'
+            value={newLot.open || ''}
+            onChange={e => updateNewLot('open', e.target.value)}
+            placeholder="Monday-Friday, 9am-11pm"
+          />
+        </div>
+
         <div className="input-field">
           <label htmlFor="image">Image URL</label>
             <input
               name="image"
-              value={newLot.imageUrl}
+              value={newLot.image}
               onChange={e => updateNewLot('imageUrl', e.target.value)}
               placeholder="https://imageurl.com/parking-lot-a"
             />
           </div>
         </div>
-        <button className="mt-4" onClick={handleClick}>Create lot</button>
-      </div>
+        <button className="mt-4" onClick={() => setStep(2)}>Next</button>
+    </div>
+  )
+  
+  if (step === 2) return (
+    <div className="p-12">
+      <button className="mt-4" onClick={handleClick}>Create Lot</button>
+    </div>
   )
 }
 

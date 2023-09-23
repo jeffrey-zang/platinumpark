@@ -8,7 +8,7 @@ const All = () => {
 
   const context = useContext(LotContext)
   let lots = context.lots
-  
+
   const navigate = useNavigate()
 
   return (
@@ -20,9 +20,20 @@ const All = () => {
         {
           lots.map((lot, index) => {
             return (
-              <div className='lot'>
-                <h2>{lot.title}</h2>
-                <p>{lot.address} • {lot.spots} spots</p>
+              <div className='lot' onClick={() => navigate(`/lot/${index}`)}>
+                <h2 className='flex justify-between items-center'>
+                  {lot.title}
+                  <p className='text-lg'>
+                    {
+                      lot.reviews.length > 0 ? 
+                      `${lot.reviews.reduce((a, b) => a + b.rating, 0) / lot.reviews.length} / 5` : 
+                      'No Reviews'
+                    }
+                  </p>
+                </h2>
+                <p>{lot.address}</p>
+                <p>{lot.spots} spots • {(lot.price === 0) ? "Free" : `$${lot.price}.00`}</p>
+                <p>Open {lot.open}</p>
                 <img src={lot.image}></img>
                 <div className='flex gap-2 items-center mt-4'>
                   <button className='w-full' onClick={() => navigate(`/lot/${index}`)}><BiSolidCar />Navigate</button>
