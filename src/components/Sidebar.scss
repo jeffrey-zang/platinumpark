@@ -9,12 +9,18 @@
         align-items: center;
         padding: 0.5rem 1rem;
         border-radius: 5px;
-        background-color: #ccfbf1;
+        background-color: #e2e8f0;
+        border: 1px solid #cbd5e1;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.08),0 4px 6px rgba(0,0,0,.04);
 
-        transition: background-color .3s ease;
+        transition: background-color .3s ease, opacity .3s ease;
         
+        &.active {
+            background-color: #bbf7cf;
+        }
+
         &:hover {
-            background-color: #99f6e4;
+            opacity: 0.7
         }
 
         span {

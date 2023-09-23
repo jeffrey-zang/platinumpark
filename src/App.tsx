@@ -4,6 +4,7 @@ import All from './pages/All/All'
 import Navigate from './pages/Navigate/Navigate'
 import Create from './pages/Create/Create'
 import Review from './pages/Review/Review'
+import Lot from './pages/Lot/Lot'
 
 import Sidebar from './components/Sidebar';
 
@@ -14,9 +15,10 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/all' element={<All />} />
+        <Route path='/lot/:id' element={<Lot />} />
+        <Route path='/review/:id' element={<Review />} />
         <Route path='/navigate' element={<Navigate />} />
         <Route path='/create' element={<Create />} />
-        <Route path='/review' element={<Review />} />
       </Routes>
     </main>
   )

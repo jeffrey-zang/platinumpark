@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-const Review = () => {
+const Lot = () => {
   const { id: rawId } = useParams();
   
   const id = rawId ? parseInt(rawId) : 0;
@@ -12,4 +12,4 @@ const Review = () => {
   )
 }
 
-export default Review
+export default Lot
