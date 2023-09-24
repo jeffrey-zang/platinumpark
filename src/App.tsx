@@ -6,7 +6,7 @@ import Create from './pages/Create/Create'
 import Review from './pages/Review/Review'
 import Lot from './pages/Lot/Lot'
 
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/Sidebar/Sidebar';
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         <Route path='/all' element={<All />} />
         <Route path='/lot/:id' element={<Lot />} />
         <Route path='/review/:id' element={<Review />} />
-        <Route path='/navigate' element={<Navigate />} />
+        <Route path='/navigate/:id' element={<Navigate />} />
         <Route path='/create' element={<Create />} />
       </Routes>
     </main>

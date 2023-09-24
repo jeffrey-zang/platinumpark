@@ -6,7 +6,7 @@ import './Sidebar.scss'
 
 const Sidebar = () => {
   return (
-    <div className='p-8 bg-slate-100 !w-[20vw] h-screen border-r-[1px] border-r-slate-300 min-w-[15rem]'>
+    <div className='p-8 bg-slate-100 !w-[20vw] h-screen border-r-[1px] border-r-slate-300 min-w-[15rem] sticky left-0 top-0'>
       <h1 className='mb-4'>
         <NavLink to="/">PlatinumPark</NavLink>
       </h1>
@@ -15,7 +15,7 @@ const Sidebar = () => {
           <FaList size={16} />
           <span>All Lots</span>
         </NavLink>
-        <NavLink to="/navigate">
+        <NavLink to="/navigate/0">
           <BiSolidCar size={16}/>
           <span>Navigate</span>
         </NavLink>
