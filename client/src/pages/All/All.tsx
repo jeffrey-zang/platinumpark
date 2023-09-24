@@ -16,7 +16,7 @@ const All = () => {
       <h1>All Lots</h1>
       <p>Here are all of the lots in our database. Simply select one to navigate to, plan a trip to, or write a review for.</p>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lots-grid w-full gap-4 mt-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lots-grid w-full gap-4 mt-4'>
         {
           lots.map((lot, index) => {
             return (
@@ -26,7 +26,7 @@ const All = () => {
                   <p className='text-lg'>
                     {
                       lot.reviews.length > 0 ? 
-                      `${lot.reviews.reduce((a, b) => a + b.rating, 0) / lot.reviews.length} / 5` : 
+                      `${Math.round(lot.reviews.reduce((a, b) => a + b.rating, 0) / lot.reviews.length)} / 5` : 
                       'No Reviews'
                     }
                   </p>

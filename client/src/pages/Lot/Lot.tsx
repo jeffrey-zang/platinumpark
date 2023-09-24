@@ -25,7 +25,7 @@ const Lot = () => {
           <p className='text-2xl'>
             {
               lot.reviews.length > 0 ? 
-              `${lot.reviews.reduce((a, b) => a + b.rating, 0) / lot.reviews.length} / 5` : 
+              `${Math.round(lot.reviews.reduce((a, b) => a + b.rating, 0) / lot.reviews.length)} / 5` : 
               'No Reviews'
             }
           </p>
