@@ -72,6 +72,7 @@ const Lot = () => {
         </div>
 
         <button className='mt-4'>Submit</button>
+        <button className='mt-4 contrast' onClick={() => navigate('/all')}>Back to home</button>
       </form>
 
     </div>

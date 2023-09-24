@@ -1,14 +1,18 @@
+const express = require('express')
+const app = express()
+const port = 3000
+
 // Imports the Google Cloud client library
 const textToSpeech = require('@google-cloud/text-to-speech');
 
 // Import other required libraries
 const fs = require('fs');
 const util = require('util');
-// Creates a client
 const client = new textToSpeech.TextToSpeechClient();
-async function quickStart() {
+
+app.post('/speak', (req, res) => {
   // The text to synthesize
-  const text = 'mike is an obese boy, very obese, so obese yes';
+  const text = req.body.text;
 
   // Construct the request
   const request = {
@@ -25,5 +29,8 @@ async function quickStart() {
   const writeFile = util.promisify(fs.writeFile);
   await writeFile('output.mp3', response.audioContent, 'binary');
   console.log('Audio content written to file: output.mp3');
-}
-quickStart();
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
