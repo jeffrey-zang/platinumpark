@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useContext } from 'react'
 import { LotContext } from '../../contexts/LotContext'
 import { BsPinFill } from 'react-icons/bs'
-import { BiSolidCar, BiSolidStar, BiSolidStar } from "react-icons/bi"
+import { BiSolidCar, BiSolidStar } from "react-icons/bi"
 import { AiFillClockCircle } from "react-icons/ai"
 import { Rating, RoundedStar } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
