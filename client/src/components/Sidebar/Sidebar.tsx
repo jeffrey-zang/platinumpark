@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom"
 import { FaList } from "react-icons/fa"
 import { BiSolidCar, BiSolidCommentDetail } from "react-icons/bi"
 import { HiViewGridAdd } from "react-icons/hi"
+import { AiFillHome } from "react-icons/ai"
 import './Sidebar.scss'
 
 const Sidebar = () => {
@@ -11,6 +12,10 @@ const Sidebar = () => {
         <NavLink to="/">PlatinumPark</NavLink>
       </h1>
       <div className="sidebar-links mt-10">
+        <NavLink to="/">
+          <AiFillHome size={16} />
+          <span>Home</span>
+        </NavLink>
         <NavLink to="/all">
           <FaList size={16} />
           <span>All Lots</span>

@@ -18,7 +18,7 @@ const Home = () => {
           <FaList size={32} />
         </div>
       </Link>
-      <Link to='/navigate'>
+      <Link to='/navigate/0'>
         <div className='container mt-8 !pr-8 hoverable flex items-center justify-between'>
           <div>
             <h1>Navigate</h1>

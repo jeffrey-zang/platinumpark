@@ -1,6 +1,3 @@
-const express = require('express')
-const app = express()
-const port = 3000
 
 // Imports the Google Cloud client library
 const textToSpeech = require('@google-cloud/text-to-speech');
@@ -10,9 +7,9 @@ const fs = require('fs');
 const util = require('util');
 const client = new textToSpeech.TextToSpeechClient();
 
-app.post('/speak', (req, res) => {
+const thing = async () => {
   // The text to synthesize
-  const text = req.body.text;
+  const text = "Turn left. Then, turn right. Then, move forward three spaces. Then, turn left again. Your destination will be to the left.";
 
   // Construct the request
   const request = {
@@ -29,8 +26,6 @@ app.post('/speak', (req, res) => {
   const writeFile = util.promisify(fs.writeFile);
   await writeFile('output.mp3', response.audioContent, 'binary');
   console.log('Audio content written to file: output.mp3');
-})
+}
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+thing()

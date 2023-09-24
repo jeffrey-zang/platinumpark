@@ -85,7 +85,7 @@ const Create = () => {
         </div>
 
         <div className="input-field">
-          <label htmlFor="price">Days Open</label>
+          <label htmlFor="open">Days Open</label>
           <input
             name='open'
             value={newLot.open || ''}
@@ -99,22 +99,23 @@ const Create = () => {
             <input
               name="image"
               value={newLot.image}
-              onChange={e => updateNewLot('imageUrl', e.target.value)}
+              onChange={e => updateNewLot('image', e.target.value)}
               placeholder="https://imageurl.com/parking-lot-a"
             />
           </div>
         </div>
-        <button className="mt-4" onClick={() => setStep(2)}>Next</button>
+        
+        <button className="mt-4" onClick={handleClick}>Submit</button>
     </div>
   )
   
-  else return (
+  /*else return (
     <div className="p-12">
       
       <TileEditor tiles={tiles} setTiles={setTiles} />
       <button className="mt-4" onClick={handleClick}>Create Lot</button>
     </div>
-  )
+  )*/
 }
 
 export default Create
