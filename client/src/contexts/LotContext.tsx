@@ -82,8 +82,19 @@ export const LotContextProvider: React.FC<{children: React.ReactNode|React.React
           description: "Ya it isn't"
         },
      ]
-    }, 
+    },
+    {
+      title: 'Costco Waterloo',
+      address: '930 Erb St. W',
+      spots: [],
+      image: 'https://lh3.googleusercontent.com/p/AF1QipOxthSV_A-xZLk88wyAPM26YiKswS5Q6vt3tVl0=s1360-w1360-h1020',
+      price: 0,
+      open: '9am-8:30pm',
+      description: 'A large parking lot with places to put away your shopping carts.',
+      reviews: []
+    }
   ])
+
 
   const addLot = (lot: LotType) => {
     setLots([...lots, lot])

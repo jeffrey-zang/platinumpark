@@ -91,7 +91,9 @@ button {
       margin-bottom: 1rem;
   }
 
-  input:focus {
-      outline: 2px solid theme('colors.accent'), 0.2;
+  input:focus, textarea:focus {
+      outline: none;
+      border-color: transparent;
+      box-shadow: 0 0 0 1.5px #7aeca0;
   }
 }

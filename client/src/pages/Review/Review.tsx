@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useContext, useState } from 'react'
 import { LotContext } from '../../contexts/LotContext'
 import { ReviewType } from "../../types/lots";
+import { Rating, RoundedStar } from "@smastrom/react-rating";
 
 const Lot = () => {
   const { id: rawId } = useParams();
@@ -41,12 +42,18 @@ const Lot = () => {
       <form onSubmit={handleSubmit}>
         <div className="input-field mt-8">
           <label htmlFor="rating">Rating</label>
-          <input
-            name='rating'
+          <Rating
+            style={{
+              maxWidth: '200px',
+              marginBottom: '10px'
+            }}
+            itemStyles={{
+              itemShapes: RoundedStar,
+              activeFillColor: '#FFD000',
+              inactiveFillColor: '#dfdfdf',
+            }}
             value={newReview.rating}
-            onChange={e => updateNewReview('rating', e.target.value)}
-            placeholder="5"
-            type='number'
+            onChange={(v: number) => updateNewReview('rating', v)}
           />
         </div>
 

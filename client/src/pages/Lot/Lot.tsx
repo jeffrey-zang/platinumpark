@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useContext } from 'react'
 import { LotContext } from '../../contexts/LotContext'
 import { BsPinFill } from 'react-icons/bs'
-import { BiSolidCar, BiSolidStar } from "react-icons/bi"
+import { BiSolidCar, BiSolidStar, BiSolidStar } from "react-icons/bi"
 import { AiFillClockCircle } from "react-icons/ai"
 import { Rating, RoundedStar } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
@@ -49,17 +49,21 @@ const Lot = () => {
         lot.reviews.map((value, index) => {
           return (
             <div className='container mt-4'>
-              <h2 className='flex items-center justify-between'>
-                {value.title}
-              </h2>
-              <Rating
-                readOnly={true}
-                style={{ maxWidth: '250px' }}
-                itemStyles={{
-                  itemShapes: <BiSolidStar />,
-                  activeFillColor: '#'
-                }}
-                value={value.rating} />
+              <div className='flex items-center justify-between'>
+                <h2>{value.title}</h2>
+                <Rating
+                  readOnly={true}
+                  style={{
+                    maxWidth: '200px'
+                  }}
+                  itemStyles={{
+                    itemShapes: RoundedStar,
+                    activeFillColor: '#FFD000',
+                    inactiveFillColor: '#dfdfdf'
+                  }}
+                  value={value.rating}
+                />
+              </div>
               <p>
                 {value.description}
               </p>
